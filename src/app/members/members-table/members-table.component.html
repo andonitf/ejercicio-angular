@@ -1,0 +1,22 @@
+<h2>Members Page</h2>
+<!-- <button (click)="loadMembers()">Load</button> -->
+<form #searchForm="ngForm" autocomplete="off" novalidate>
+  <div class="form-group">
+    <label for="organizationName">
+      Organization:
+    </label>
+    <input type="text"
+      class="form-control"
+      name="organizationName"
+      [(ngModel)]="organizationName"
+      (ngModelChange)="organizationNameUpdated()" />
+  </div>
+  <button (click)="loadMembers()">Load</button>
+</form>
+<table>
+  <thead app-member-head></thead>
+  <tbody>
+    <tr app-member-row [member]="member" *ngFor="let member of members">
+    </tr>
+  </tbody>
+</table>
